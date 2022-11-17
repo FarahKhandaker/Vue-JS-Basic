@@ -1,0 +1,110 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Vue</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+        /* .box {
+            padding: 100px 0;
+            width: 400px;
+            text-align: center;
+            background: #ddd;
+            margin: 20px;
+            display: inline-block;
+        } */
+        body{
+            background: #eee;
+            max-width: 960;
+            margin: 20px auto;
+        }
+        p, h3, ul{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style-type: none;
+            background: #fff;
+            margin: 20px auto;
+            padding: 10px 20px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        li.fav {
+            background: #ff9eff;
+            color: rgb(19, 17, 17);
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Hello, Vue :) </h1>
+
+    <div id="app">
+        <!-- <h2>I am the template now</h2>  -->
+
+        <!-- ! click events -->
+        <!-- 
+        <button v-on:click="age++">Increase Age</button>
+        <button v-on:click="age--">Decrease Age</button>
+        <div @click="changeTitle('Nishithini')">Change book title</div> -->
+
+        <!-- ! attribute binding -->
+        <!-- <a v-bind:href="url">Best website ever</a> -->
+        <!-- <a :href="url">Best website ever</a> -->
+
+        <!-- ! conditional Rendering -->
+        <div v-if="showBooks">
+            <!-- outputting list -->
+            <!-- <p>{{ books[0].title }} - {{ books[0].author }}</p>
+            <p>{{ books[1].title }} - {{ books[1].author }}</p>
+            <p>{{ books[2].title }} - {{ books[2].author }}</p> -->
+
+        <!-- ! Computed properties -->
+            <ul>
+                <li v-for="book in filteredBooks" :class="{ fav: book.isFav }"  @click="toggleFav(book)" >
+                    <!-- ! data binding -->
+                    <img :src="book.img" :alt="book.title">
+
+                    <h3>{{ book.title }}</h3>
+                    <p>{{ book.author }}</p>
+                </li>
+            </ul>
+
+            <!-- ! outputting list(v-for) && Dynamic class -->
+            <!-- <ul>
+                <li v-for="book in books" :class="{ fav: book.isFav }"  @click="toggleFav(book)" >
+                    <!-- ! data binding -->
+                    <!-- <img :src="book.img" :alt="book.title">
+
+                    <h3>{{ book.title }}</h3>
+                    <p>{{ book.author }}</p>
+                </li>
+            </ul> --> 
+
+        </div>
+        <button @click="toggleShowBooks">
+            <span v-if="showBooks">Hide Books</span>
+            <!-- <span v-if="!showBooks">Show Books</span>  -->
+            <span v-else>Show Books</span>
+        </button>
+
+        <!-- ! mouse event -->
+        <!-- <div v-show="showBooks">currently showing books</div>  -->
+        <!-- <div class="box" @mouseover="handleEvent($event, 5)">mouseover (enter)</div>
+        <div class="box" @mouseleave="handleEvent">mouseleave</div>
+        <div class="box" @dblclick="handleEvent">double click</div>
+        <div class="box" @mousemove="handleMousemove">Possition - {{ x }} {{ y }}</div> -->
+
+        <br>
+
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
